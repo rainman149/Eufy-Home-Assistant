@@ -40,6 +40,10 @@ cloud; the video itself is pulled LAN-direct from the NVR.
      (default `30`; a different camera preempts it; set `0` to disable)
    - *(optional)* `disabled_channels` -> comma-separated channel numbers such as `0,2` to omit
      cameras that cannot stream from go2rtc and snapshot priming. Discovery still records them.
+   - *(optional)* `ice_allow` -> comma-separated IPv4 prefixes such as `192.168.1.` (your LAN) for the
+     WebRTC candidates offered to the NVR. Hosts with Docker, VPN (for example Tailscale) or IPv6
+     interfaces otherwise offer unreachable candidates and the first connection attempt can stall in ICE
+     "checking". Falls back to every candidate if none match.
    - *(optional)* `station_sn` — only if auto-discovery can't find your NVR's serial.
    - *(optional)* `captcha_id` + `captcha_answer` — only if a login is challenged with a graphic
      captcha (the log prints the `captcha_id`; solve it and set both, then restart).

@@ -70,6 +70,7 @@ options:
   token_refresh_hours: 6
   video_copy: false
   disabled_channels: ""
+  ice_allow: ""
   verification_code: ""
   go2rtc_username: "eufy"
   go2rtc_password: ""
@@ -95,6 +96,9 @@ schema:
   # Optional comma-separated camera channel numbers (for example 0,2) to omit from go2rtc
   # and snapshot priming when those cameras cannot stream. Discovery still finds them.
   disabled_channels: str?
+  # Optional comma-separated IPv4 prefixes (for example 192.168.1.) for the WebRTC candidates
+  # offered to the NVR. Leave blank to offer every host candidate.
+  ice_allow: str?
   station_sn: str?
   captcha_id: str?
   captcha_answer: str?
